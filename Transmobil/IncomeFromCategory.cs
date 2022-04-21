@@ -30,15 +30,19 @@ namespace Transmobil
             String categoryName = comboBox1.SelectedItem.ToString();
             using (TransmobilDBContext ctx = new())
             {
+                /*
+                 Действителен брой дни * Наем за 1 ден + Изминати километри * Цена за километър – Авансово платена сума
+                    Физическите лица ползват 10% отстъпка от цената за изминат километър.
+                 */
                 Func<DataModel, double> sum = delegate (DataModel x) {
                     double result;
                     if ((bool)x._renter.IsCompany)
                     {
-                        result = (x._contract.ReturnDate - x._contract.RentDate).TotalDays * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) + x._contract.MoneyInAdvance;
+                        result = ((x._contract.ReturnDate - x._contract.RentDate).TotalDays + 1) * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) + x._contract.MoneyInAdvance;
                     }
                     else
                     {
-                        result = (x._contract.ReturnDate - x._contract.RentDate).TotalDays * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) * 0.9 + x._contract.MoneyInAdvance;
+                        result = ((x._contract.ReturnDate - x._contract.RentDate).TotalDays + 1) * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) * 0.9 + x._contract.MoneyInAdvance;
                     }
                     return result;
                 };

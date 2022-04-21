@@ -27,11 +27,11 @@ namespace Transmobil
                     double result;
                     if ((bool)x._renter.IsCompany)
                     {
-                        result = (x._contract.ReturnDate - x._contract.RentDate).TotalDays * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) + x._contract.MoneyInAdvance;
+                        result = ((x._contract.ReturnDate - x._contract.RentDate).TotalDays + 1) * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) + x._contract.MoneyInAdvance;
                     }
                     else
                     {
-                        result = (x._contract.ReturnDate - x._contract.RentDate).TotalDays * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) * 0.9 + x._contract.MoneyInAdvance;
+                        result = ((x._contract.ReturnDate - x._contract.RentDate).TotalDays + 1) * x._result.RentPerDay + (x._contract.ReturnMileage - x._contract.RentMileage) * decimal.ToDouble(x._car.CostPerKm) * 0.9 + x._contract.MoneyInAdvance;
                     }
                     return result;
                 };
