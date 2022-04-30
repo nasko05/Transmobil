@@ -33,8 +33,8 @@ namespace Forms
             using  (TransmobilDBContext ctx = new())
             {
                 Contract contract = new();
-                contract.IdRenter = int.Parse(textBox1.Text);
-                contract.IdCar = int.Parse(textBox2.Text);
+                contract.IdRenter = int.Parse(comboBox1.SelectedItem.ToString());
+                contract.IdCar = int.Parse(comboBox2.SelectedItem.ToString());
                 contract.RentDate = dateTimePicker1.Value;
                 contract.ReturnDate = dateTimePicker2.Value;
                 contract.RentMileage = int.Parse(textBox5.Text);
@@ -50,6 +50,19 @@ namespace Forms
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddContract_Load(object sender, EventArgs e)
+        {
+            LoadOptions();
+        }
+        void LoadOptions()
+        {
+            using (TransmobilDBContext ctx = new())
+            {
+                comboBox1.DataSource = ctx.Renters.Select(x => x.RenterName).ToList();
+                comboBox2.DataSource = ctx.Cars.Select(x => x.Brand + " " + x.Model).ToList();
+            }
         }
     }
 }

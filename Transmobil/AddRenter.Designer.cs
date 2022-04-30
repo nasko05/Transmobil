@@ -54,7 +54,7 @@ namespace Transmobil
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(284, 54);
+            this.label1.Size = new System.Drawing.Size(319, 54);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Renter";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -95,9 +95,10 @@ namespace Transmobil
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 62);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(146, 54);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 23);
+            this.textBox1.Size = new System.Drawing.Size(165, 33);
             this.textBox1.TabIndex = 4;
             // 
             // label5
@@ -113,23 +114,26 @@ namespace Transmobil
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 99);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(146, 96);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(141, 23);
+            this.textBox2.Size = new System.Drawing.Size(165, 33);
             this.textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 139);
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(146, 136);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(141, 23);
+            this.textBox3.Size = new System.Drawing.Size(165, 33);
             this.textBox3.TabIndex = 7;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(146, 180);
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox4.Location = new System.Drawing.Point(146, 177);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(141, 23);
+            this.textBox4.Size = new System.Drawing.Size(165, 33);
             this.textBox4.TabIndex = 8;
             // 
             // button1
@@ -137,7 +141,7 @@ namespace Transmobil
             this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(3, 215);
+            this.button1.Location = new System.Drawing.Point(3, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 46);
             this.button1.TabIndex = 9;
@@ -150,7 +154,7 @@ namespace Transmobil
             this.button2.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(175, 215);
+            this.button2.Location = new System.Drawing.Point(199, 220);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 46);
             this.button2.TabIndex = 10;
@@ -168,7 +172,7 @@ namespace Transmobil
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 54);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(325, 54);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // AddRenter
@@ -176,7 +180,7 @@ namespace Transmobil
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(290, 265);
+            this.ClientSize = new System.Drawing.Size(325, 277);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

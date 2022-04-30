@@ -28,7 +28,8 @@ namespace Transmobil
                 textBox2.Text = car.Brand;
                 textBox3.Text = car.Model;
                 textBox4.Text = car.CostPerKm + "";
-                textBox5.Text = car.IdCategory + "";
+                comboBox1.DataSource = ctx.Categories.Select(x => x.Name).ToList();
+                comboBox1.SelectedItem = ctx.Categories.Where(x => x.IdCategory == car.IdCategory).FirstOrDefault().Name;
             }
         }
 
@@ -36,12 +37,13 @@ namespace Transmobil
         {
             using (TransmobilDBContext ctx = new()) 
             {
+                int CatID = ctx.Categories.Where(x => x.Name == comboBox1.SelectedItem.ToString()).FirstOrDefault().IdCategory;
                 Car car = ctx.Cars.Find(_id);
                 car.LicensePlate = textBox1.Text;
                 car.Brand = textBox2.Text;
                 car.Model = textBox3.Text;
                 car.CostPerKm = decimal.Parse(textBox4.Text);
-                car.IdCategory = int.Parse(textBox5.Text);
+                car.IdCategory = CatID;
                 ctx.SaveChanges();
             }
             MessageBox.Show($"Successfully edited the car with id:{_id}!");
@@ -51,6 +53,10 @@ namespace Transmobil
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditCar_Load(object sender, EventArgs e)
+        {
         }
     }
 }

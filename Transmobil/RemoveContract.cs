@@ -26,8 +26,8 @@ namespace Forms
                 Contract contract = ctx.Contracts.Find(_id);
                 textBox1.Text = contract.IdRenter + "";
                 textBox2.Text = contract.IdCar + "";
-                textBox3.Text = contract.RentDate + "";
-                textBox4.Text = contract.ReturnDate + "";
+                dateTimePicker1.Value = contract.RentDate;
+                dateTimePicker2.Value = contract.ReturnDate;
                 textBox5.Text = contract.RentMileage + "";
                 textBox6.Text = contract.ReturnMileage + "";
                 textBox7.Text = contract.MoneyInAdvance + "";

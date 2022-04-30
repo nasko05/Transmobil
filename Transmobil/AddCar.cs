@@ -27,7 +27,14 @@ namespace Transmobil
                 car.Brand = textBox2.Text;
                 car.Model = textBox3.Text;
                 car.CostPerKm = decimal.Parse(textBox4.Text);
-                car.IdCategory = int.Parse(textBox5.Text);
+                try
+                {
+                    car.IdCategory = ctx.Categories.Where(x => x.Name == comboBox1.SelectedItem.ToString()).FirstOrDefault().IdCategory;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Невалидна категория");
+                }
                 ctx.Add(car);
                 ctx.SaveChanges();
             }
@@ -38,6 +45,18 @@ namespace Transmobil
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddCar_Load(object sender, EventArgs e)
+        {
+            LoadOptions();
+        }
+        void LoadOptions()
+        {
+            using (TransmobilDBContext ctx = new())
+            {
+                comboBox1.DataSource = ctx.Categories.Select(x => x.Name).ToList();
+            }
         }
     }
 }

@@ -24,8 +24,10 @@ namespace Forms
             using (TransmobilDBContext ctx = new())
             {
                 Contract contract = ctx.Contracts.Find(_id);
-                textBox1.Text = contract.IdRenter + "";
-                textBox2.Text = contract.IdCar + "";
+                comboBox1.DataSource = ctx.Renters.Select(x => x.RenterName).ToList();
+                comboBox2.DataSource = ctx.Cars.Select(x => x.Brand + " " + x.Model).ToList();
+                comboBox1.SelectedItem = ctx.Renters.Where(x => x.IdRenter == contract.IdRenter).Select(x => x.RenterName).FirstOrDefault();
+                comboBox2.SelectedItem = ctx.Cars.Select(x => x.Brand + " " + x.Model).FirstOrDefault();
                 dateTimePicker1.Value = contract.RentDate;
                 dateTimePicker2.Value = contract.ReturnDate;
                 textBox5.Text = contract.RentMileage + "";
@@ -40,8 +42,8 @@ namespace Forms
             using (TransmobilDBContext ctx = new())
             {
                 Contract contract = ctx.Contracts.Find(_id);
-                contract.IdRenter = int.Parse(textBox1.Text);
-                contract.IdCar = int.Parse(textBox2.Text);
+                contract.IdRenter = int.Parse(comboBox1.SelectedItem.ToString());
+                contract.IdCar = int.Parse(comboBox2.SelectedItem.ToString());
                 contract.RentDate = dateTimePicker1.Value;
                 contract.ReturnDate = dateTimePicker2.Value;
                 contract.RentMileage = int.Parse(textBox5.Text);
